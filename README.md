@@ -1,6 +1,6 @@
-# CommonLibSSE-NG Template
+# Better Help Command
 
-This is a basic plugin template for use with CommonLibSSE-NG.
+Adds form type filtering to the Help command in Skyrim Special Edition.
 
 ### Dependencies
 * [XMake](https://xmake.io) [2.7.2+]
@@ -8,8 +8,8 @@ This is a basic plugin template for use with CommonLibSSE-NG.
 
 ## Getting started
 ```bat
-git clone https://github.com/Qudix/template-commonlibsse-ng
-cd template-commonlibsse-ng
+git clone https://github.com/lStewieAl/BetterHelpCommand-SSE
+cd BetterHelpCommand-SSE
 ```
 
 ### Building
