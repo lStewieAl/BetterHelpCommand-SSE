@@ -12,6 +12,8 @@ inline const std::uintptr_t HelpUsageAddr2 = ScriptHelpFunctionAddr + 0xA6A;
 inline const std::uintptr_t ParamInfoToReplaceAddr = REL::ID(365802).address();
 inline const std::uintptr_t TwoOptionalStringsAddr = REL::ID(368114).address();
 inline const std::uintptr_t FormTypeStringsAddr = REL::ID(359121).address();
+
+bool shouldPreventUsageString;
 extern "C" unsigned char filterTypeID = 0;
 extern "C" void HookCheckTypeID();
 
@@ -47,6 +49,9 @@ void __cdecl OnHelpExtractArgs(const RE::SCRIPT_PARAMETER* a_paramInfo, RE::SCRI
 			}
 		}
 	}
+
+	shouldPreventUsageString = filterType > 0 && filterType <= 4;
+
 	*(DWORD*)typeStr = filterType;
 }
 
@@ -60,7 +65,7 @@ void __fastcall OnPrintOtherFormsString(RE::ConsoleLog* consoleLog, const char* 
 
 void __fastcall OnPrintUsageHelpString(RE::ConsoleLog* consoleLog, const char* otherFromsString)
 {
-	if (!filterTypeID)
+	if (!shouldPreventUsageString)
 	{
 		consoleLog->Print(otherFromsString);
 		consoleLog->Print("filters: 0-all 1-functions, 2-settings, 3-globals, 4-other forms, CELL-cells, NPC_-npcs etc.");
