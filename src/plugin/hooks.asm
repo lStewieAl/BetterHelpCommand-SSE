@@ -8,7 +8,7 @@ HookCheckTypeID PROC
 
 	mov rax, [filterTypeID]
 	mov rax, [rax]
-	test rax, rax
+	test al, al
 	je noFilter
 
 	cmp byte ptr [rbx + 1Ah], al

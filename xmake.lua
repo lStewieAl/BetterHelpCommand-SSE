@@ -1,8 +1,8 @@
 set_xmakever("2.7.2")
 
 -- project
-set_project("template-commonlibsse-ng")
-set_version("0.0.0")
+set_project("ImprovedHelpCommand")
+set_version("1.0.0")
 set_license("MIT")
 set_languages("c++20")
 set_optimize("faster")
@@ -31,13 +31,13 @@ add_requires("commonlibsse-ng", { configs = { skyrim_vr = false }})
 includes("res/package.lua")
 
 -- targets
-target("template-plugin")
+target("ImprovedHelpCommand")
     add_packages("fmt", "spdlog", "commonlibsse-ng")
 
     add_rules("@commonlibsse-ng/plugin", {
-        name = "template-plugin",
-        author = "Qudix",
-        description = "SKSE64 plugin template using CommonLibSSE-NG"
+        name = "ImprovedHelpCommand",
+        author = "lStewieAl",
+        description = "SKSE64 plugin to improve the help command output"
     })
 
     add_files("src/plugin/**.cpp", "src/plugin/**.asm")
